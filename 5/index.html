@@ -1,0 +1,30 @@
+<!doctype HTML>
+<html>
+<head>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.0.1/aframe/build/aframe-ar.min.js"></script>
+</head>
+<body style='margin: 0px; overflow: hidden;'>
+  <a-scene embedded arjs>
+    <a-box position="0 0.5 0" color="red" id="interactiveBox" material="opacity: 0.8;"></a-box>
+    
+    <a-marker-camera type="pattern" url="pattern-marker.patt"></a-marker-camera>
+  </a-scene>
+
+  <script>
+    const interactiveBox = document.querySelector('#interactiveBox');
+
+    // Список цветов для переключения
+    const colors = ['red', 'green', 'blue', 'yellow', 'purple'];
+    let currentColorIndex = 0;
+
+    // Обработка нажатия клавиши "Пробел"
+    document.addEventListener('keydown', function (event) {
+      if (event.code === 'Space') { 
+        currentColorIndex = (currentColorIndex + 1) % colors.length;
+        interactiveBox.setAttribute('material', 'color', colors[currentColorIndex]);
+      }
+    });
+  </script>
+</body>
+</html>

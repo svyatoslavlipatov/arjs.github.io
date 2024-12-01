@@ -1,0 +1,44 @@
+<!doctype HTML>
+<html>
+<head>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.0.1/aframe/build/aframe-ar.min.js"></script>
+</head>
+<body style='margin: 0px; overflow: hidden;'>
+  <a-scene embedded arjs>
+    <a-marker preset="hiro" id="marker">
+      <a-sphere id="sphere" position="0 1 0" radius="0.5" color="red" 
+                event-set__mouseenter="_event: mouseenter; color: green" 
+                event-set__mouseleave="_event: mouseleave; color: red"></a-sphere>
+      
+      <a-text id="scoreDisplay" value="Очки: 0" position="0 1.7 0" color="white" scale="2 2 2"></a-text>
+    </a-marker>
+
+    <a-entity camera>
+      <a-cursor color="yellow"></a-cursor>
+    </a-entity>
+  </a-scene>
+
+  <script>
+    let score = 0; 
+
+    function randomizeSpherePosition() {
+      const sphere = document.querySelector('#sphere');
+      const randomX = (Math.random() - 0.5) * 2; 
+      const randomY = (Math.random() - 0.5) * 2; 
+      const randomZ = (Math.random() - 0.5) * 2; 
+      sphere.setAttribute('position', `${randomX} ${randomY} ${randomZ}`);
+    }
+
+    function incrementScore() {
+      score += 1;
+      document.querySelector('#scoreDisplay').setAttribute('value', `Очки: ${score}`);
+      randomizeSpherePosition();
+    }
+
+    document.querySelector('#sphere').addEventListener('click', incrementScore);
+
+    randomizeSpherePosition();
+  </script>
+</body>
+</html>
