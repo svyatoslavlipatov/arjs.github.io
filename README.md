@@ -51,5 +51,5 @@ https://github.com/user-attachments/assets/3bfc2115-6304-4ede-9c51-2ef27b916afe
 ## **Задача 19. Включение AR-сцены по кнопке**
 https://github.com/user-attachments/assets/d2270dff-04bb-4d52-8c94-2f83edc9c35d
 
-## **Задача 19. Включение AR-сцены по кнопке**
+## **Задача 20. Воссоздание солнечной системы**
 https://github.com/user-attachments/assets/334d179f-7579-481f-9faf-4897a3662a73
